@@ -44,14 +44,12 @@ def Kakuros(xy,yz):
 
 
     status = solver.Solve(model)
-    if status == cp_model.FEASIBLE:
-        xy.writelines(
+    if status == cp_model.POS:
+        xy.write(
             str(xy[3]) + ", " + str(solver.Value(a1)) + ", " + str(solver.Value(a2)) + ", " + str(solver.Value(a3)) + "\n")
-
-        xy.writelines(
-        str(xy[4]) + ", " + str(solver.Value(x1)) + ", " + str(solver.Value(x2)) + ", " + str(solver.Value(x3)) + "\n")
-
-        ai.writelines(
+        xy.write(
+            str(xy[4]) + ", " + str(solver.Value(x1)) + ", " + str(solver.Value(x2)) + ", " + str(solver.Value(x3)) + "\n")
+        xy.write(
             str(xy[5]) + ", " + str(solver.Value(z1)) + ", " + str(solver.Value(z2)) + ", " + str( solver.Value(z3)))
 
 
