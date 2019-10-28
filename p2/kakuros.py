@@ -8,7 +8,7 @@ from ortools.sat.python import cp_model
 
 model = cp_model.CpModel()
 
-def Kakuros(xy,yz):
+def Kakuros(xy,yx):
 
     a1 = model.NewIntVar(1, 9, 'a1')
     a2 = model.NewIntVar(1, 9, 'a2')
@@ -44,7 +44,7 @@ def Kakuros(xy,yz):
 
 
     status = solver.Solve(model)
-    if status == cp_model.POS:
+    if status == cp_model.POSS:
         xy.write(
             str(xy[3]) + ", " + str(solver.Value(a1)) + ", " + str(solver.Value(a2)) + ", " + str(solver.Value(a3)) + "\n")
         xy.write(
